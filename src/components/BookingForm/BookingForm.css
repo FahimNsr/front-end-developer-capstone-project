@@ -60,6 +60,30 @@
   background-color: var(--color-secondary-white);
 }
 
+/* Error states */
+.booking-form input.error,
+.booking-form select.error {
+  border-color: #d32f2f;
+  background-color: #fff5f5;
+}
+
+.booking-form input.error:focus,
+.booking-form select.error:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
+}
+
+/* Error messages */
+.booking-form .error-message {
+  font-family: var(--font-body);
+  font-size: 14pt;
+  color: #d32f2f;
+  margin-top: var(--spacing-xs);
+  display: block;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 .booking-form input::placeholder {
   color: var(--color-secondary-dark-grey);
   opacity: 0.5;
