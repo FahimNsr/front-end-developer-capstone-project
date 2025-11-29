@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
 
-function BookingForm({ availableTimes, dispatch }) {
+function BookingForm({ availableTimes, dispatch, submitForm }) {
   // State variables for form fields
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
@@ -19,8 +19,8 @@ function BookingForm({ availableTimes, dispatch }) {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic will be added in future steps
-    console.log('Form submitted:', { date, time, guests, occasion });
+    const formData = { date, time, guests, occasion };
+    submitForm(formData);
   };
 
   return (
