@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
 
-function BookingForm() {
+function BookingForm({ availableTimes, dispatch }) {
   // State variables for form fields
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState('');
   const [occasion, setOccasion] = useState('');
-  
-  // State for available times
-  const [availableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00']);
+
+  // Handle date change and dispatch state update
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    setDate(selectedDate);
+    // Dispatch the state change with the newly selected date
+    dispatch({ type: 'UPDATE_TIMES', date: selectedDate });
+  };
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -26,7 +31,7 @@ function BookingForm() {
           type="date"
           id="res-date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          onChange={handleDateChange}
           required
         />
       </div>
