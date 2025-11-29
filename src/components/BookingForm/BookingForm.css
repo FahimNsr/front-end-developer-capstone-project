@@ -1,0 +1,188 @@
+/* BookingForm.css - Booking form styles */
+
+.booking-form {
+  display: grid;
+  max-width: 500px;
+  width: 100%;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-xl);
+  background-color: var(--color-secondary-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+/* Form field group */
+.booking-form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.booking-form label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-paragraph);
+  font-weight: 600;
+  color: var(--color-primary-green);
+  margin-bottom: 0;
+  letter-spacing: 0.3px;
+}
+
+.booking-form input,
+.booking-form select {
+  font-family: var(--font-body);
+  font-size: var(--font-size-paragraph);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid var(--color-secondary-light-grey);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-secondary-white);
+  color: var(--color-secondary-dark-grey);
+  transition: all 0.3s ease;
+  width: 100%;
+  min-height: 48px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.booking-form input:hover,
+.booking-form select:hover {
+  border-color: var(--color-primary-green);
+  box-shadow: 0 2px 4px rgba(73, 94, 87, 0.1);
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  outline: none;
+  border-color: var(--color-primary-green);
+  box-shadow: 0 0 0 3px rgba(73, 94, 87, 0.15);
+  background-color: var(--color-secondary-white);
+}
+
+.booking-form input::placeholder {
+  color: var(--color-secondary-dark-grey);
+  opacity: 0.5;
+}
+
+/* Select dropdown styling */
+.booking-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23495E57' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-md) center;
+  background-size: 12px;
+  padding-right: calc(var(--spacing-md) * 2 + 12px);
+  cursor: pointer;
+}
+
+.booking-form select option {
+  padding: var(--spacing-sm);
+  background-color: var(--color-secondary-white);
+  color: var(--color-secondary-dark-grey);
+}
+
+/* Number input styling */
+.booking-form input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.booking-form input[type="number"]::-webkit-outer-spin-button,
+.booking-form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Date input styling */
+.booking-form input[type="date"] {
+  position: relative;
+  cursor: pointer;
+}
+
+.booking-form input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Submit button */
+.booking-form .submit-button {
+  font-family: var(--font-body);
+  font-size: var(--font-size-paragraph);
+  font-weight: 600;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-primary-yellow);
+  color: var(--color-secondary-dark-grey);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-sm);
+  box-shadow: 0 2px 8px rgba(244, 206, 20, 0.3);
+  width: 100%;
+  min-height: 52px;
+  letter-spacing: 0.5px;
+}
+
+.booking-form .submit-button:hover {
+  background-color: var(--color-primary-orange);
+  color: var(--color-secondary-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(238, 153, 114, 0.4);
+}
+
+.booking-form .submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(238, 153, 114, 0.3);
+}
+
+.booking-form .submit-button:focus {
+  outline: 2px solid var(--color-primary-green);
+  outline-offset: 3px;
+}
+
+.booking-form .submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (max-width: 768px) {
+  .booking-form {
+    max-width: 100%;
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) auto;
+    gap: var(--spacing-sm);
+  }
+
+  .booking-form label {
+    font-size: 14pt;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    font-size: 14pt;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-height: 44px;
+  }
+
+  .booking-form .submit-button {
+    font-size: 14pt;
+    padding: var(--spacing-sm) var(--spacing-md);
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-form {
+    padding: var(--spacing-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+}
+
