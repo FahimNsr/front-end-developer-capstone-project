@@ -31,7 +31,7 @@ function Specials() {
     <section className="specials">
       <div className="specials-header">
         <h2>This week's specials!</h2>
-        <button className="online-menu-button">Online Menu</button>
+        <button className="online-menu-button" aria-label="On Click">Online Menu</button>
       </div>
       <div className="specials-grid">
         {specialsData.map((special) => (
@@ -50,7 +50,7 @@ function Specials() {
                 <span className="special-price">{special.price}</span>
               </div>
               <p className="special-description">{special.description}</p>
-              <button className="order-delivery-button">
+              <button className="order-delivery-button" aria-label="On Click">
                 Order a delivery
                 <img 
                   src="/images/basket .svg" 

@@ -13,8 +13,8 @@ function CallToAction() {
             We are a family owned Mediterranean restaurant, focused on traditional 
             recipes served with a modern twist.
           </p>
-          <Link to="/reservations">
-            <button className="cta-button">Reserve a Table</button>
+          <Link to="/reservations" aria-label="On Click">
+            <button className="cta-button" aria-label="On Click">Reserve a Table</button>
           </Link>
         </div>
         <div className="cta-image">

@@ -26,32 +26,32 @@ function Nav({ isMenuOpen, closeMenu }) {
       >
         <ul>
           <li>
-            <Link to="/" onClick={handleLinkClick}>
+            <Link to="/" onClick={handleLinkClick} aria-label="On Click">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" onClick={handleLinkClick}>
+            <Link to="/about" onClick={handleLinkClick} aria-label="On Click">
               About
             </Link>
           </li>
           <li>
-            <Link to="/menu" onClick={handleLinkClick}>
+            <Link to="/menu" onClick={handleLinkClick} aria-label="On Click">
               Menu
             </Link>
           </li>
           <li>
-            <Link to="/reservations" onClick={handleLinkClick}>
+            <Link to="/reservations" onClick={handleLinkClick} aria-label="On Click">
               Reservations
             </Link>
           </li>
           <li>
-            <Link to="/order" onClick={handleLinkClick}>
+            <Link to="/order" onClick={handleLinkClick} aria-label="On Click">
               Order Online
             </Link>
           </li>
           <li>
-            <Link to="/login" onClick={handleLinkClick}>
+            <Link to="/login" onClick={handleLinkClick} aria-label="On Click">
               Login
             </Link>
           </li>

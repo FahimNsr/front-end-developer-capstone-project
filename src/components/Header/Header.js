@@ -54,7 +54,7 @@ function Header() {
           <button
             className="hamburger-menu-button"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={`${isMenuOpen ? 'Close menu' : 'Open menu'}. On Click`}
             aria-expanded={isMenuOpen}
             aria-controls="main-navigation"
           >
