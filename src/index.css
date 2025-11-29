@@ -34,8 +34,244 @@ code {
   flex-direction: column;
 }
 
+/* ============================================
+   HEADINGS (h1, h2, h3, h4, h5, h6)
+   ============================================ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   line-height: var(--line-height-display);
   margin: 0;
+  color: var(--color-secondary-dark-grey);
+  font-weight: 500;
+}
+
+h1 {
+  font-size: var(--font-size-display);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary-green);
+}
+
+h2 {
+  font-size: var(--font-size-subtitle);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary-green);
+}
+
+h3 {
+  font-size: var(--font-size-card-title);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-secondary-dark-grey);
+}
+
+h4 {
+  font-size: var(--font-size-card-title);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-secondary-dark-grey);
+}
+
+h5 {
+  font-size: var(--font-size-lead);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-secondary-dark-grey);
+}
+
+h6 {
+  font-size: var(--font-size-paragraph);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-secondary-dark-grey);
+  font-weight: 600;
+}
+
+/* Responsive heading sizes */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 32pt;
+  }
+  
+  h2 {
+    font-size: 28pt;
+  }
+  
+  h3, h4 {
+    font-size: 16pt;
+  }
+}
+
+/* ============================================
+   PARAGRAPHS (p)
+   ============================================ */
+p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-paragraph);
+  line-height: var(--line-height-body);
+  color: var(--color-secondary-dark-grey);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   SPANS (span)
+   ============================================ */
+span {
+  font-family: var(--font-body);
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* ============================================
+   NAVIGATION ELEMENTS (nav, ul, li)
+   ============================================ */
+nav {
+  font-family: var(--font-body);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-paragraph);
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+}
+
+nav a:hover {
+  color: var(--color-primary-green);
+}
+
+nav a:active {
+  color: var(--color-primary-green);
+}
+
+/* Responsive navigation */
+@media (min-width: 768px) {
+  nav ul {
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
+  
+  nav a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+/* ============================================
+   IMAGES (img)
+   ============================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Remove shadow for icons and small images */
+img[src*="icon"],
+img[src*="Icon"],
+img[src*="Logo"],
+img[src*="logo"] {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Responsive images */
+@media (max-width: 767px) {
+  img {
+    border-radius: calc(var(--border-radius-md) * 0.75);
+  }
+}
+
+/* ============================================
+   CONTAINERS (div, article, aside, section)
+   ============================================ */
+article, aside, section {
+  margin: 0;
+  padding: 0;
+}
+
+/* Cards and containers with shadows */
+.card,
+article.card,
+div.card {
+  background-color: var(--color-secondary-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Containers with light background */
+article,
+aside {
+  background-color: var(--color-secondary-light-grey);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Links */
+a {
+  color: var(--color-primary-green);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-yellow);
+}
+
+a:active {
+  color: var(--color-primary-orange);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-body);
+  font-size: var(--font-size-paragraph);
+  font-weight: 600;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary-yellow);
+  color: var(--color-secondary-dark-grey);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: var(--color-primary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:focus {
+  outline: 2px solid var(--color-primary-green);
+  outline-offset: 2px;
 }

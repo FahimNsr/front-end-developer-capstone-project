@@ -28,7 +28,8 @@
   --line-height-body: 1.5;
   
   /* Border Radius */
-  --border-radius: 16px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 8px;
   
   /* Spacing */
   --spacing-xs: 0.5rem;

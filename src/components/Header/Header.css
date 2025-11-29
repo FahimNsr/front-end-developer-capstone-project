@@ -23,6 +23,8 @@ header img {
   max-width: 200px;
   height: auto;
   display: block;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Navigation Styles */
@@ -30,7 +32,7 @@ header nav {
   width: 100%;
   background-color: var(--color-secondary-dark-grey);
   padding: var(--spacing-sm);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-md);
 }
 
 header nav ul {
@@ -52,7 +54,7 @@ header nav a {
   padding: 0.75rem var(--spacing-sm);
   display: block;
   text-align: center;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-md);
   transition: background-color 0.3s ease;
   font-family: var(--font-body);
   font-size: var(--font-size-paragraph);
