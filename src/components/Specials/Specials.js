@@ -28,10 +28,10 @@ const specialsData = [
 function Specials() {
 
   return (
-    <section className="specials">
+    <section className="specials" aria-labelledby="specials-heading">
       <div className="specials-header">
-        <h2>This week's specials!</h2>
-        <button className="online-menu-button" aria-label="On Click">Online Menu</button>
+        <h2 id="specials-heading">This week's specials!</h2>
+        <button className="online-menu-button" aria-label="View online menu">Online Menu</button>
       </div>
       <div className="specials-grid">
         {specialsData.map((special) => (
@@ -39,9 +39,11 @@ function Specials() {
             <div className="special-image">
               <img 
                 src={special.image} 
-                alt={special.name}
+                alt={`${special.name} - ${special.description.substring(0, 50)}...`}
                 loading="lazy"
                 decoding="async"
+                width="300"
+                height="200"
               />
             </div>
             <div className="special-content">
@@ -50,14 +52,15 @@ function Specials() {
                 <span className="special-price">{special.price}</span>
               </div>
               <p className="special-description">{special.description}</p>
-              <button className="order-delivery-button" aria-label="On Click">
+              <button className="order-delivery-button" aria-label={`Order ${special.name} for delivery`}>
                 Order a delivery
                 <img 
                   src="/images/basket .svg" 
-                  alt="Basket" 
+                  alt="" 
                   className="basket-icon"
                   loading="lazy"
                   decoding="async"
+                  aria-hidden="true"
                 />
               </button>
             </div>

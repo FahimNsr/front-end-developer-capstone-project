@@ -3,11 +3,11 @@ import './Chicago.css';
 
 function Chicago() {
   return (
-    <section className="chicago">
+    <section className="chicago" aria-labelledby="chicago-heading">
       <div className="chicago-container">
         <div className="chicago-content">
           <div className="chicago-text">
-            <h2>Little Lemon</h2>
+            <h2 id="chicago-heading">Little Lemon</h2>
             <h3>Chicago</h3>
             <p>
               Little Lemon is owned by two Italian brothers, Mario and Adrian, 
@@ -24,7 +24,7 @@ function Chicago() {
           <div className="chicago-images">
             <img 
               src="/images/Mario and Adrian A.jpg" 
-              alt="Mario and Adrian" 
+              alt="Mario and Adrian, owners of Little Lemon restaurant" 
               className="chicago-image chicago-image-1"
               loading="lazy"
               decoding="async"
@@ -33,7 +33,7 @@ function Chicago() {
             />
             <img 
               src="/images/Mario and Adrian b.jpg" 
-              alt="Mario and Adrian cooking" 
+              alt="Mario and Adrian cooking in the Little Lemon kitchen" 
               className="chicago-image chicago-image-2"
               loading="lazy"
               decoding="async"

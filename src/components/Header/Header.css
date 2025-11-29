@@ -19,6 +19,22 @@ header img {
   flex-shrink: 0;
 }
 
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.logo-link:focus {
+  outline: 2px solid var(--color-primary-green);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
 /* ============================================
    CONTAINER CLASSES
    ============================================ */

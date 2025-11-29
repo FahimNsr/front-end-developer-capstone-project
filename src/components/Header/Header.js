@@ -1,4 +1,5 @@
 import React, { memo, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import './Header.css';
 
@@ -44,17 +45,19 @@ function Header() {
     <header>
       <div className="header-container">
         <div className="header-logo-wrapper">
-          <img 
-            src="/images/Logo.svg" 
-            alt="Little Lemon Logo"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
+          <Link to="/" aria-label="Little Lemon - Home" className="logo-link">
+            <img 
+              src="/images/Logo.svg" 
+              alt="Little Lemon Logo"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </Link>
           <button
             className="hamburger-menu-button"
             onClick={toggleMenu}
-            aria-label={`${isMenuOpen ? 'Close menu' : 'Open menu'}. On Click`}
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="main-navigation"
           >

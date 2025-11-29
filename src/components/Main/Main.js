@@ -1,24 +1,28 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, lazy, Suspense } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import HomePage from '../../pages/HomePage/HomePage';
-import BookingPage from '../../pages/BookingPage/BookingPage';
-import ConfirmedBooking from '../../pages/ConfirmedBooking/ConfirmedBooking';
 import { initializeTimes, updateTimes } from '../../utils/timesReducer';
 import './Main.css';
+
+// Lazy load pages for better performance
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const BookingPage = lazy(() => import('../../pages/BookingPage/BookingPage'));
+const ConfirmedBooking = lazy(() => import('../../pages/ConfirmedBooking/ConfirmedBooking'));
 
 function Main() {
   const [availableTimes, dispatch] = useReducer(updateTimes, null, initializeTimes);
 
   return (
     <main>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route 
-          path="/reservations" 
-          element={<BookingPageWrapper availableTimes={availableTimes} dispatch={dispatch} />} 
-        />
-        <Route path="/confirmed" element={<ConfirmedBooking />} />
-      </Routes>
+      <Suspense fallback={<div className="loading-fallback" aria-live="polite" aria-label="Loading page">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route 
+            path="/reservations" 
+            element={<BookingPageWrapper availableTimes={availableTimes} dispatch={dispatch} />} 
+          />
+          <Route path="/confirmed" element={<ConfirmedBooking />} />
+        </Routes>
+      </Suspense>
     </main>
   );
 }

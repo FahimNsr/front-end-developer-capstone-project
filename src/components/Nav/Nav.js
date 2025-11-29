@@ -10,6 +10,12 @@ function Nav({ isMenuOpen, closeMenu }) {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleLinkClick();
+    }
+  };
+
   return (
     <>
       {/* Mobile menu overlay */}
@@ -26,32 +32,32 @@ function Nav({ isMenuOpen, closeMenu }) {
       >
         <ul>
           <li>
-            <Link to="/" onClick={handleLinkClick} aria-label="On Click">
+            <Link to="/" onClick={handleLinkClick} onKeyDown={handleKeyDown} aria-label="Navigate to Home page">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" onClick={handleLinkClick} aria-label="On Click">
+            <Link to="/about" onClick={handleLinkClick} onKeyDown={handleKeyDown} aria-label="Navigate to About page">
               About
             </Link>
           </li>
           <li>
-            <Link to="/menu" onClick={handleLinkClick} aria-label="On Click">
+            <Link to="/menu" onClick={handleLinkClick} onKeyDown={handleKeyDown} aria-label="Navigate to Menu page">
               Menu
             </Link>
           </li>
           <li>
-            <Link to="/reservations" onClick={handleLinkClick} aria-label="On Click">
+            <Link to="/reservations" onClick={handleLinkClick} onKeyDown={handleKeyDown} aria-label="Navigate to Reservations page">
               Reservations
             </Link>
           </li>
           <li>
-            <Link to="/order" onClick={handleLinkClick} aria-label="On Click">
+            <Link to="/order" onClick={handleLinkClick} onKeyDown={handleKeyDown} aria-label="Navigate to Order Online page">
               Order Online
             </Link>
           </li>
           <li>
-            <Link to="/login" onClick={handleLinkClick} aria-label="On Click">
+            <Link to="/login" onClick={handleLinkClick} onKeyDown={handleKeyDown} aria-label="Navigate to Login page">
               Login
             </Link>
           </li>

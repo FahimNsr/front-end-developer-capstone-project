@@ -9,3 +9,12 @@ main {
   flex-direction: column;
 }
 
+.loading-fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-size: var(--font-size-lead);
+  color: var(--color-primary-green);
+}
+

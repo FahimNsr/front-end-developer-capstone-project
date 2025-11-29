@@ -7,35 +7,68 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => jest.fn(),
 }));
 
-import { render, screen } from '@testing-library/react';
+// Mock lazy-loaded components to avoid Suspense issues in tests
+// These mocks must be defined before the Main component imports them
+// React.lazy expects a promise, so we return a resolved promise with the component
+jest.mock('./pages/HomePage/HomePage', () => {
+  const HomePage = () => <div data-testid="home-page">HomePage</div>;
+  return {
+    __esModule: true,
+    default: HomePage,
+  };
+});
+
+jest.mock('./pages/BookingPage/BookingPage', () => {
+  const BookingPage = () => <div data-testid="booking-page">BookingPage</div>;
+  return {
+    __esModule: true,
+    default: BookingPage,
+  };
+});
+
+jest.mock('./pages/ConfirmedBooking/ConfirmedBooking', () => {
+  const ConfirmedBooking = () => <div data-testid="confirmed-booking">ConfirmedBooking</div>;
+  return {
+    __esModule: true,
+    default: ConfirmedBooking,
+  };
+});
+
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  test('renders the Little Lemon application', () => {
+  test('renders the Little Lemon application', async () => {
     render(<App />);
     
-    // Check that the app structure is rendered
-    const appElement = document.querySelector('.App');
-    expect(appElement).toBeInTheDocument();
+    // Wait for Suspense to resolve
+    await waitFor(() => {
+      const appElement = document.querySelector('.App');
+      expect(appElement).toBeInTheDocument();
+    }, { timeout: 3000 });
   });
 
-  test('renders header component', () => {
+  test('renders header component', async () => {
     render(<App />);
     
-    // Check for header element
-    const headerElement = document.querySelector('header');
-    expect(headerElement).toBeInTheDocument();
+    // Wait for Suspense to resolve and check for header element
+    await waitFor(() => {
+      const headerElement = document.querySelector('header');
+      expect(headerElement).toBeInTheDocument();
+    }, { timeout: 3000 });
   });
 
-  test('renders footer component', () => {
+  test('renders footer component', async () => {
     render(<App />);
     
-    // Check for footer element
-    const footerElement = document.querySelector('footer');
-    expect(footerElement).toBeInTheDocument();
+    // Wait for Suspense to resolve
+    await waitFor(() => {
+      const footerElement = document.querySelector('footer');
+      expect(footerElement).toBeInTheDocument();
+    }, { timeout: 3000 });
     
     // Check for footer text within footer element
-    const footerText = screen.getByText(/© 2024 Little Lemon Restaurant/i);
+    const footerText = await screen.findByText(/© 2024 Little Lemon Restaurant/i, {}, { timeout: 3000 });
     expect(footerText).toBeInTheDocument();
   });
 });

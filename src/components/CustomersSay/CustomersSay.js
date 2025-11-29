@@ -39,26 +39,28 @@ const renderStars = (rating) => {
 function CustomersSay() {
 
   return (
-    <section className="customers-say">
+    <section className="customers-say" aria-labelledby="testimonials-heading">
       <div className="customers-say-container">
-        <h2>Testimonials</h2>
+        <h2 id="testimonials-heading">Testimonials</h2>
         <div className="testimonials-grid">
           {testimonialsData.map((testimonial) => (
             <article key={testimonial.id} className="testimonial-card">
-              <div className="testimonial-rating">
-                {renderStars(testimonial.rating)}
+              <div className="testimonial-rating" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
+                <span aria-hidden="true">{renderStars(testimonial.rating)}</span>
               </div>
               <div className="testimonial-customer">
                 <img 
                   src={testimonial.image} 
-                  alt={testimonial.name}
+                  alt={`${testimonial.name}, customer`}
                   className="customer-image"
                   loading="lazy"
                   decoding="async"
                 />
                 <span className="customer-name">{testimonial.name}</span>
               </div>
-              <p className="testimonial-review">{testimonial.review}</p>
+              <blockquote className="testimonial-review" cite={`${testimonial.name}`}>
+                <p>{testimonial.review}</p>
+              </blockquote>
             </article>
           ))}
         </div>

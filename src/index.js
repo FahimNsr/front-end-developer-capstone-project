@@ -5,17 +5,27 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // Load API script if not already loaded
+// Using a safer approach than eval() for better security and performance
 if (!window.fetchAPI) {
-  fetch('https://raw.githubusercontent.com/courseraap/capstone/main/api.js')
-    .then(response => response.text())
-    .then(scriptContent => {
-      const modifiedScript = scriptContent
-        .replace(/const fetchAPI = /g, 'window.fetchAPI = ')
-        .replace(/const submitAPI = /g, 'window.submitAPI = ')
-        .replace(/const seededRandom = /g, 'window.seededRandom = ');
-      eval(modifiedScript);
-    })
-    .catch(() => {});
+  const script = document.createElement('script');
+  script.src = 'https://raw.githubusercontent.com/courseraap/capstone/main/api.js';
+  script.async = true;
+  script.onload = () => {
+    // Ensure functions are available on window object
+    if (typeof fetchAPI !== 'undefined') {
+      window.fetchAPI = fetchAPI;
+    }
+    if (typeof submitAPI !== 'undefined') {
+      window.submitAPI = submitAPI;
+    }
+    if (typeof seededRandom !== 'undefined') {
+      window.seededRandom = seededRandom;
+    }
+  };
+  script.onerror = () => {
+    console.warn('Failed to load API script');
+  };
+  document.head.appendChild(script);
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
