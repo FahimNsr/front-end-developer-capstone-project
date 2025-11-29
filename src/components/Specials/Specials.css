@@ -1,0 +1,156 @@
+/* Specials.css - Weekly specials section */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+.specials {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--color-secondary-white);
+  width: 100%;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.specials-header {
+  max-width: 1200px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.specials-header h2 {
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-subtitle);
+  margin: 0;
+}
+
+.online-menu-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+/* ============================================
+   GRID LAYOUT
+   ============================================ */
+.specials-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.special-card {
+  background-color: var(--color-secondary-light-grey);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.special-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.special-content {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.special-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.special-header h3 {
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-card-title);
+  margin: 0;
+}
+
+.special-price {
+  color: var(--color-primary-orange);
+  font-size: var(--font-size-card-title);
+  font-weight: 600;
+}
+
+.special-description {
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-paragraph);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.order-delivery-button {
+  background-color: transparent;
+  color: var(--color-secondary-dark-grey);
+  padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-shadow: none;
+}
+
+.order-delivery-button:hover {
+  color: var(--color-primary-green);
+  background-color: transparent;
+  transform: none;
+}
+
+.basket-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .specials-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .specials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .special-image {
+    height: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .specials {
+    padding: var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .specials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .special-image {
+    height: 300px;
+  }
+}

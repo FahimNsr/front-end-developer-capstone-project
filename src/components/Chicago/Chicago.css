@@ -1,0 +1,167 @@
+/* Chicago.css - About section */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+.chicago {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--color-secondary-white);
+  width: 100%;
+  contain: layout style paint;
+}
+
+.chicago-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chicago-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
+.chicago-text h2 {
+  color: var(--color-primary-green);
+  font-size: var(--font-size-subtitle);
+  margin-bottom: var(--spacing-xs);
+}
+
+.chicago-text h3 {
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-lead);
+  margin-bottom: var(--spacing-md);
+}
+
+.chicago-text p {
+  margin-bottom: var(--spacing-md);
+  max-width: 600px;
+}
+
+.chicago-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   IMAGE CONTAINER
+   ============================================ */
+.chicago-images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.chicago-image-placeholder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* ============================================
+   IMAGE STYLES
+   ============================================ */
+.chicago-image {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: opacity 0.3s ease;
+}
+
+.chicago-image-1 {
+  position: relative;
+  z-index: 2;
+}
+
+.chicago-image-2 {
+  position: relative;
+  z-index: 1;
+  transform: translate3d(-20px, 20px, 0);
+}
+
+/* ============================================
+   IMAGE STATES
+   ============================================ */
+.chicago-image.loading {
+  opacity: 0;
+}
+
+.chicago-image.loaded {
+  opacity: 1;
+}
+
+.chicago-image.placeholder {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary-light-grey) 25%,
+    rgba(237, 239, 238, 0.5) 50%,
+    var(--color-secondary-light-grey) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+  box-shadow: none;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes loading-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .chicago-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .chicago-images {
+    justify-content: flex-end;
+  }
+
+  .chicago-image {
+    max-width: 250px;
+    height: 250px;
+  }
+
+  .chicago-image-2 {
+    transform: translate3d(-30px, 30px, 0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .chicago {
+    padding: var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .chicago-image {
+    max-width: 300px;
+    height: 300px;
+  }
+
+  .chicago-image-2 {
+    transform: translate3d(-40px, 40px, 0);
+  }
+}

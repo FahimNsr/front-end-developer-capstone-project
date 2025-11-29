@@ -1,0 +1,95 @@
+/* CallToAction.css - Hero/Jumbotron section */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+.call-to-action {
+  background-color: var(--color-primary-green);
+  padding: var(--spacing-xl) var(--spacing-md);
+  width: 100%;
+}
+
+.cta-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+/* ============================================
+   TEXT CONTENT
+   ============================================ */
+.cta-text {
+  color: var(--color-secondary-white);
+}
+
+.cta-text h1 {
+  color: var(--color-primary-yellow);
+  font-size: var(--font-size-display);
+  margin-bottom: var(--spacing-xs);
+}
+
+.cta-text h2 {
+  color: var(--color-secondary-white);
+  font-size: var(--font-size-subtitle);
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-text p {
+  color: var(--color-secondary-white);
+  font-size: var(--font-size-lead);
+  margin-bottom: var(--spacing-lg);
+  max-width: 500px;
+}
+
+/* ============================================
+   BUTTON
+   ============================================ */
+.cta-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+/* ============================================
+   IMAGE
+   ============================================ */
+.cta-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-image img {
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .cta-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .cta-image img {
+    max-width: 500px;
+    height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .call-to-action {
+    padding: var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .cta-image img {
+    max-width: 600px;
+    height: 600px;
+  }
+}

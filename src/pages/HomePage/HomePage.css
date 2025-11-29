@@ -1,0 +1,7 @@
+/* HomePage.css - Homepage container */
+.homepage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+

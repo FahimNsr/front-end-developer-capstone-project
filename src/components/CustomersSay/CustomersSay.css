@@ -1,0 +1,98 @@
+/* CustomersSay.css - Testimonials section */
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+.customers-say {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--color-secondary-white);
+  width: 100%;
+}
+
+.customers-say-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.customers-say-container h2 {
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-subtitle);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+/* ============================================
+   GRID LAYOUT
+   ============================================ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.testimonial-card {
+  background-color: var(--color-secondary-light-grey);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.testimonial-rating {
+  color: var(--color-primary-yellow);
+  font-size: var(--font-size-lead);
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.testimonial-customer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.customer-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customer-name {
+  font-size: var(--font-size-paragraph);
+  font-weight: 600;
+  color: var(--color-secondary-dark-grey);
+}
+
+.testimonial-review {
+  font-size: var(--font-size-paragraph);
+  color: var(--color-secondary-dark-grey);
+  line-height: var(--line-height-body);
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .customers-say {
+    padding: var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,214 @@
+/* Nav.css - Navigation component styles */
+
+/* ============================================
+   MOBILE MENU OVERLAY
+   ============================================ */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+  backdrop-filter: blur(2px);
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   BASE NAVIGATION STYLES
+   ============================================ */
+nav {
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 999;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-secondary-white);
+  font-size: var(--font-size-paragraph);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 1rem var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================
+   NAVIGATION PSEUDO-ELEMENTS
+   ============================================ */
+nav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--color-primary-yellow);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  transform: scaleY(1);
+}
+
+/* ============================================
+   NAVIGATION STATES
+   ============================================ */
+nav a:hover,
+nav a:focus {
+  background-color: rgba(73, 94, 87, 0.2);
+  color: var(--color-primary-yellow);
+  padding-left: calc(var(--spacing-md) + 8px);
+}
+
+nav a:active {
+  background-color: rgba(73, 94, 87, 0.3);
+  color: var(--color-primary-yellow);
+}
+
+/* ============================================
+   MOBILE STYLES
+   ============================================ */
+@media (max-width: 997px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    background-color: var(--color-secondary-dark-grey);
+    padding: 0;
+    border-radius: 0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  nav.open {
+    right: 0;
+  }
+
+  nav ul {
+    padding-top: 80px;
+    padding-bottom: var(--spacing-lg);
+  }
+
+  nav a {
+    font-size: 1.1rem;
+  }
+
+  nav ul li:first-child a {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+}
+
+/* ============================================
+   DESKTOP STYLES
+   ============================================ */
+@media (min-width: 998px) {
+  .nav-overlay {
+    display: none;
+  }
+
+  nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    overflow: visible;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--color-secondary-dark-grey);
+    padding: 0.5rem var(--spacing-sm);
+    text-align: left;
+    background-color: transparent;
+    border-bottom: none;
+    border-radius: var(--border-radius-sm);
+    position: relative;
+  }
+
+  nav a::before {
+    display: none;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-primary-green);
+    transition: transform 0.3s ease;
+  }
+
+  nav a:hover::after,
+  nav a:focus::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  nav a:hover,
+  nav a:focus {
+    background-color: transparent;
+    color: var(--color-primary-green);
+    padding-left: var(--spacing-sm);
+    transform: translateY(-2px);
+  }
+
+  nav a:active {
+    background-color: transparent;
+    color: var(--color-primary-green);
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  nav a {
+    padding: 0.5rem var(--spacing-md);
+    font-size: var(--font-size-paragraph);
+  }
+}

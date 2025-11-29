@@ -1,0 +1,41 @@
+/* BookingPage.css - Booking page styles */
+
+/* ============================================
+   PAGE CONTAINER
+   ============================================ */
+.booking-page {
+  width: 100%;
+  min-height: 60vh;
+}
+
+.booking-section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  background-color: var(--color-secondary-white);
+  width: 100%;
+}
+
+.booking-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.booking-container h1 {
+  color: var(--color-primary-green);
+  font-size: var(--font-size-display);
+  margin-bottom: var(--spacing-md);
+}
+
+.booking-container p {
+  color: var(--color-secondary-dark-grey);
+  font-size: var(--font-size-lead);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 1024px) {
+  .booking-section {
+    padding: var(--spacing-xl) var(--spacing-xl);
+  }
+}

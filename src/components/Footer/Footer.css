@@ -1,12 +1,15 @@
 /* Footer.css - Using Little Lemon Design System */
-@import '../../styles/variables.css';
 
+/* ============================================
+   BASE ELEMENT STYLES
+   ============================================ */
 footer {
   grid-area: footer;
   background-color: var(--color-secondary-dark-grey);
   color: var(--color-secondary-white);
   padding: var(--spacing-lg) var(--spacing-sm);
   width: 100%;
+  contain: layout style paint;
 }
 
 footer div {
@@ -24,28 +27,31 @@ footer h4 {
   font-family: var(--font-display);
   font-size: var(--font-size-card-title);
   font-weight: 500;
+  color: var(--color-secondary-white);
 }
 
 footer p {
   margin: 0;
-  font-family: var(--font-body);
   font-size: var(--font-size-paragraph);
   text-align: center;
   line-height: var(--line-height-body);
+  color: var(--color-secondary-white);
 }
 
-/* Responsive Footer */
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
 @media (min-width: 768px) {
   footer {
     padding: var(--spacing-lg);
   }
-  
+
   footer div {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   footer p {
     text-align: left;
   }
@@ -56,4 +62,3 @@ footer p {
     padding: var(--spacing-xl) var(--spacing-xl);
   }
 }
-
