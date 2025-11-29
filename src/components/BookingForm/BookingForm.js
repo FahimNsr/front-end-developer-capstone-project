@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './BookingForm.css';
 
 // Validation functions (pure functions, defined outside component)
-const validateDate = (dateValue) => {
+export const validateDate = (dateValue) => {
   if (!dateValue) {
     return 'Please select a date';
   }
@@ -15,14 +15,14 @@ const validateDate = (dateValue) => {
   return '';
 };
 
-const validateTime = (timeValue) => {
+export const validateTime = (timeValue) => {
   if (!timeValue) {
     return 'Please select a time';
   }
   return '';
 };
 
-const validateGuests = (guestsValue) => {
+export const validateGuests = (guestsValue) => {
   if (!guestsValue) {
     return 'Please enter the number of guests';
   }
@@ -36,7 +36,7 @@ const validateGuests = (guestsValue) => {
   return '';
 };
 
-const validateOccasion = (occasionValue) => {
+export const validateOccasion = (occasionValue) => {
   if (!occasionValue) {
     return 'Please select an occasion';
   }
@@ -44,7 +44,7 @@ const validateOccasion = (occasionValue) => {
 };
 
 // Get today's date in YYYY-MM-DD format for min date validation
-const getTodayDate = () => {
+export const getTodayDate = () => {
   const today = new Date();
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, '0');
